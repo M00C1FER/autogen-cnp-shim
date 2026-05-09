@@ -103,7 +103,7 @@ class CNPGroupChatManager(BaseGroupChatManager):
         return self._latest_award
 
     async def validate_group_state(self, messages: list[BaseChatMessage] | None) -> None:
-        return None
+        pass
 
     async def reset(self) -> None:
         self._budget_tracker = BudgetTracker(self._initial_parent_budget)

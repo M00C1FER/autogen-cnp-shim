@@ -35,7 +35,7 @@ award = manager.route_contract(
 print(award.state)
 ```
 
-See `/home/runner/work/autogen-cnp-shim/autogen-cnp-shim/examples/basic_research_team.py` for a runnable script.
+See `examples/basic_research_team.py` for a runnable script.
 
 ## Decision matrix
 
