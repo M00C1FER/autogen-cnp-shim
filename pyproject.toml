@@ -12,6 +12,7 @@ license = { text = "MIT" }
 authors = [{ name = "M00C1FER" }]
 dependencies = [
   "autogen-agentchat>=0.4",
+  # Pinned to lifecycle API commit; migrate to semver release once published upstream.
   "contract-net-router @ git+https://github.com/M00C1FER/contract-net-router.git@042f9c23c2d9c0c1bf8d2e9d814b92c58909be66",
 ]
 
