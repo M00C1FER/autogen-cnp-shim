@@ -91,10 +91,11 @@ class CNPGroupChatManager(BaseGroupChatManager):
         route_result = self._router.route(task)
         fulfilled = budget_ok and route_result.winning_agent is not None
         state = ContractState.FULFILLED if fulfilled else ContractState.VIOLATED
+        winning_agent = route_result.winning_agent if budget_ok else None
 
         self._latest_award = ContractAward(
             task=task,
-            winning_agent=route_result.winning_agent,
+            winning_agent=winning_agent,
             state=state,
             requested_budget=requested_budget,
             remaining_budget=self._budget_tracker.remaining_budget,
@@ -121,4 +122,4 @@ class CNPGroupChatManager(BaseGroupChatManager):
         award = self.route_contract(task_text)
         if award.winning_agent:
             return self._participant_name_to_topic_type[award.winning_agent]
-        return self._participant_name_to_topic_type[self._bidders[0].name]
+        raise RuntimeError("No winning agent selected by contract-net-router.")

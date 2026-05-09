@@ -20,7 +20,7 @@ def test_three_agent_budget_capped_contract_fulfilled() -> None:
     )
 
     assert award.state is ContractState.FULFILLED
-    assert award.winning_agent in {"research", "coding", "review"}
+    assert award.winning_agent in {"research", "coding"}
 
 
 def test_over_budget_contract_is_violated() -> None:
@@ -31,3 +31,4 @@ def test_over_budget_contract_is_violated() -> None:
     )
 
     assert award.state is ContractState.VIOLATED
+    assert award.winning_agent is None
